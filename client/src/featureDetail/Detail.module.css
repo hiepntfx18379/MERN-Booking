@@ -1,0 +1,9 @@
+.container {
+  width: 100%;
+}
+
+.detailContainer {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 20px;
+}

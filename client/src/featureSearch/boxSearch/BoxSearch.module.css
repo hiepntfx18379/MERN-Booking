@@ -1,0 +1,60 @@
+.infoSearch {
+  flex: 1;
+  background-color: #febb02;
+  padding: 10px;
+  border-radius: 10px;
+  position: sticky; /* mix: relative vs fixed  */
+  height: fit-content;
+  top: 10px;
+}
+.item {
+  display: flex;
+  flex-direction: column;
+}
+
+.titleSearch {
+  margin-bottom: -0px;
+  font-size: 24px;
+  color: gray;
+}
+
+label {
+  margin: 10px 0 5px 0;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.inputCheck {
+  padding: 5px;
+  font-size: 16px;
+  border: none;
+}
+
+/* chọn ngày */
+.checkDate {
+  background: white;
+  padding: 5px;
+}
+
+/* số lượng người */
+.opIt {
+  display: flex;
+  justify-content: space-between;
+  line-height: 1.8;
+  padding: 5px 10px;
+  color: gray;
+}
+
+.textValue {
+  height: 20px;
+  width: 40px;
+}
+
+.btnSearch {
+  width: 100%;
+  border: none;
+  padding: 10px;
+  margin-top: 15px;
+  background-color: rgb(42, 42, 226);
+  color: white;
+}

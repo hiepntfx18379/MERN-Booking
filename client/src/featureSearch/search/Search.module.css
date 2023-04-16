@@ -1,0 +1,12 @@
+.boxContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.wrapper {
+  width: 80%;
+  display: flex;
+  gap: 20px;
+}

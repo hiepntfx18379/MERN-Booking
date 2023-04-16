@@ -1,0 +1,12 @@
+/* css global */
+.box {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+img {
+  width: 100%;
+  object-fit: cover;
+}

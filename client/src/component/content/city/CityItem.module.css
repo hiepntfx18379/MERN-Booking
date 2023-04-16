@@ -1,0 +1,32 @@
+.boxCity {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.image {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.text {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  color: white;
+}
+
+.nameCity {
+  font-size: 35px;
+  font-weight: 700;
+}
+
+.subText {
+  font-weight: 700;
+  word-spacing: 5px;
+  font-size: 22px;
+  letter-spacing: 1.5px;
+  height: 30px;
+}

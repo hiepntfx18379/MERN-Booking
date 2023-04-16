@@ -1,0 +1,99 @@
+/* thông tin hotel */
+.reserve_book {
+  display: flex;
+  justify-content: space-between;
+}
+.name {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.icon {
+  margin-right: 5px;
+}
+
+.address {
+  color: black;
+  font-weight: 600;
+  font-size: 13px;
+  margin: 10px 0px;
+}
+
+.distance,
+.price {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.distance {
+  color: rgb(33, 33, 171);
+}
+
+.price {
+  color: rgb(15, 136, 15);
+}
+
+/* danh sách ảnh */
+.photosList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+/* miêu tả */
+.infoDetail {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 22px;
+  margin-top: 30px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 30px;
+  color: black;
+}
+
+.dec {
+  font-size: 15.2px;
+}
+
+.priceDetail {
+  background-color: rgb(198, 243, 243);
+  padding: 18px;
+}
+
+.night {
+  font-weight: 700;
+  font-size: 18px;
+  color: #6a6565;
+  margin-bottom: 15px;
+}
+
+.shortDesc {
+  margin: 25px 0 25px 0px;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.currentPrice {
+  font-weight: 300;
+}
+
+.bookBtn,
+.bookBtn1 {
+  width: 100%;
+  background-color: rgb(42, 42, 226);
+  color: white;
+  padding: 15px 0px;
+  font-size: 17px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  height: 50px;
+}
+.bookBtn1 {
+  width: 20%;
+}
