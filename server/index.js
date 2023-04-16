@@ -4,6 +4,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import routers from "./routes/index.js";
+import cookieParser from "cookie-parser";
 
 dotenv.config();
 const app = express();
@@ -29,6 +30,7 @@ app.use((err, req, res, next) => {
     stack: err.stack, // i can send whatever i want because no certain rule
   });
 });
+app.use(cookieParser());
 
 // route init
 routers(app);

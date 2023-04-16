@@ -6,7 +6,8 @@ export const createHotel = async (req, res, next) => {
     const infoHotel = req.body;
     const newHotel = new hotelsModel(infoHotel);
     await newHotel.save();
-    console.log("create ok");
+
+    res.status(200).json("create ok", newHotel);
   } catch (err) {
     next(err);
   }

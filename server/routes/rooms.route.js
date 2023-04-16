@@ -1,9 +1,43 @@
 import express from "express";
+import {
+  createRoom,
+  updateRoom,
+  deleteRoom,
+  findRoom,
+  getAllRoom,
+} from "../controllers/room.controller.js";
+import { verifyAdmin } from "../utils/verifyToken.js";
 
-const roomsRoute = express.Router();
+const roomRoute = express.Router();
 
-roomsRoute.use("/", (req, res) => {
-  res.send("room");
-});
+/**
+ * Private
+ * POST create
+ */
+roomRoute.post("/create/:hotelId", verifyAdmin, createRoom);
 
-export default roomsRoute;
+/**
+ * Private
+ * PUT update
+ */
+roomRoute.put("/update/:id", verifyAdmin, updateRoom);
+
+/**
+ * Private
+ * POST delete
+ */
+roomRoute.delete("/delete/:id/:hotelId", verifyAdmin, deleteRoom);
+
+/**
+ * Public
+ * GET find Room
+ */
+roomRoute.get("/:id", findRoom);
+
+/**
+ * Public
+ * GET get all
+ */
+roomRoute.get("/", getAllRoom);
+
+export default roomRoute;

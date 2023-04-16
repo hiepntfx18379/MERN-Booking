@@ -1,4 +1,5 @@
-POST http://localhost:5000/hotels/update/643a50b4dc2e7ca880ba8f9a
+# hotel
+POST http://localhost:5000/hotels/create
 Content-Type: application/json
 
 {
@@ -29,3 +30,67 @@ DELETE http://localhost:5000/hotels/delete/643a50b4dc2e7ca880ba8f9a
 ###
 GET http://localhost:5000/hotels
 
+###
+# user
+POST http://localhost:5000/auth/register
+Content-Type: application/json
+
+{
+  "username": "hiepsi" ,
+  "password": "123456" ,
+  "fullName": "NTH" ,
+  "phoneNumber": "12345689",
+  "email": "fjask@gmail.com"
+}
+
+###
+POST http://localhost:5000/auth/login
+Content-Type: application/json
+
+{
+  "username": "fize" ,
+  "password": "123456" 
+}
+
+###
+
+PUT http://localhost:5000/user/update/643ba019ef496cc7e9ef2408
+Content-Type: application/json
+
+{
+  "username": "fize"
+}
+
+###
+GET http://localhost:5000/user/checkToken
+
+###
+GET http://localhost:5000/user/checkUser/643ba019ef496cc7e9ef2408
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2JhMDE5ZWY0OTZjYzdlOWVmMjQwOCIsImlkQWRtaW4iOnRydWUsImlhdCI6MTY4MTYzODM1Nn0.l_Nage0gD8BYxK-yw-MvJJx0xxIfQtH8tX53neqEeUs
+
+###
+
+GET http://localhost:5000/user/checkAdmin/643ba019ef496cc7e9ef2408
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2JhMDE5ZWY0OTZjYzdlOWVmMjQwOCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4MTYzODYzMn0.LaY_y8jG-9G0u30deok0zLglxS25pWKgXjRmyQVyXwM
+
+###
+# rooms
+POST http://localhost:5000/rooms/create/643b9eca154be6efe94e0709
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2JhMDE5ZWY0OTZjYzdlOWVmMjQwOCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4MTY4MjMyMn0.HA-z7kj8Sff4eNp4xZc6oczn6c2KMgu4eYdFlzs5YuQ
+
+{
+  "title":"King Room",
+  "desc":"King size bed, 1 bathroom, 1 balcony ",
+  "price": 100,
+  "maxPeople":2,
+  "roomNumbers":[{"number": 101}, {"number": 102}]
+}
+
+###
+GET  http://localhost:5000/hotels/
+
+###
+DELETE  http://localhost:5000/rooms/delete/643c71aa877ee59324525cce/643b9eca154be6efe94e0709

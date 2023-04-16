@@ -6,6 +6,7 @@ import {
   findHotel,
   getAllHotel,
 } from "../controllers/hotel.controller.js";
+import { verifyAdmin } from "../utils/verifyToken.js";
 
 const hotelsRoute = express.Router();
 
@@ -13,19 +14,19 @@ const hotelsRoute = express.Router();
  * Private
  * POST create
  */
-hotelsRoute.post("/create", createHotel);
+hotelsRoute.post("/create", verifyAdmin, createHotel);
 
 /**
  * Private
  * PUT update
  */
-hotelsRoute.put("/update/:id", updateHotel);
+hotelsRoute.put("/update/:id", verifyAdmin, updateHotel);
 
 /**
  * Private
  * POST delete
  */
-hotelsRoute.delete("/delete/:id", deleteHotel);
+hotelsRoute.delete("/delete/:id", verifyAdmin, deleteHotel);
 
 /**
  * Public
