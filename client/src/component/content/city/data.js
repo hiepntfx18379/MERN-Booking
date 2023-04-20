@@ -1,17 +1,21 @@
+import DN from "../../../data/cityImage/DaNang.jpg";
+import HN from "../../../data/cityImage/HaNoi.jpg";
+import HCM from "../../../data/cityImage/HCM.jpg";
+
 export const dataCity = [
   {
-    name: "Dublin",
+    name: "Ha Noi",
     subText: "123 properties",
-    image: "./images/city_1.webp",
+    image: HN,
   },
   {
-    name: "Reno",
+    name: "Da Nang",
     subText: "533 properties",
-    image: "./images/city_2.webp",
+    image: DN,
   },
   {
-    name: "Austin",
+    name: "HCM",
     subText: "532 properties",
-    image: "./images/city_3.webp",
+    image: HCM,
   },
 ];

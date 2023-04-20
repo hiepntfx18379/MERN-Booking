@@ -9,12 +9,7 @@ const Search = () => {
     <div>
       <Navbar />
       <Header type="search" />
-      <div className={styles.boxContainer}>
-        <div className={styles.wrapper}>
-          <BoxSearch />
-          <DisplaySearch />
-        </div>
-      </div>
+      <BoxSearch />
     </div>
   );
 };

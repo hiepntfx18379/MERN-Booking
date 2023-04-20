@@ -1,4 +1,4 @@
-import React, { setS } from "react";
+import React from "react";
 import styles from "./Item.module.css";
 import clsx from "clsx";
 import { useState } from "react";

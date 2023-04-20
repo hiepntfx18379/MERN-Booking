@@ -2,13 +2,15 @@ import React from "react";
 
 import styles from "./BrowseItem.module.css";
 
-const BrowseItem = ({ type }) => {
+const BrowseItem = ({ image, id, data }) => {
   return (
     <div className={styles.boxItem}>
-      <img src={type.image} className={styles.image} alt="" />
+      <img src={image.image} className={styles.image} alt="" />
       <div className={styles.boxText}>
-        <div className={styles.name}>{type.name}</div>
-        <div className={styles.count}>{type.count} hotels</div>
+        <div className={styles.name}>{data[id].type}</div>
+        <div className={styles.count}>
+          {data[id].count} {data[id].type}
+        </div>
       </div>
     </div>
   );

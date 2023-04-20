@@ -6,24 +6,22 @@ import styles from "./DetailItem.module.css";
 
 const DetailItem = ({ in4 }) => {
   const location = useLocation();
-  console.log(location);
-
   return (
     <div className={styles.box}>
       {/* thong tin hotel */}
       <div className={styles.reserve_book}>
         <div className={styles.addressDetail}>
-          <div className={styles.name}>{location.state.nameHotel}</div>
+          <div className={styles.name}>{in4.name}</div>
           <div className={styles.address}>
             <FontAwesomeIcon icon={faLocationDot} className={styles.icon} />
-            {location.state.descHotel}
+            {in4.address}
           </div>
           <div className={styles.distance}>
-            Excellent location - {location.state.disHotel} from center
+            Excellent location - {in4.distance}m from center
           </div>
           <div className={styles.price}>
-            Book a stay over ${location.state.priceHotel} at this property and
-            get a free airport taxi
+            Book a stay over ${in4.cheapestPrice} at this property and get a
+            free airport taxi
           </div>
         </div>
 
@@ -32,7 +30,7 @@ const DetailItem = ({ in4 }) => {
 
       {/* danh sách  hình ảnh */}
       <div className={styles.photosList}>
-        {in4.photos.map((pt, i) => (
+        {in4.photos?.map((pt, i) => (
           <img src={pt} alt="" key={i} className={styles.image} />
         ))}
       </div>
@@ -41,7 +39,7 @@ const DetailItem = ({ in4 }) => {
       <div className={styles.infoDetail}>
         <div className={styles.textDetail}>
           <div className={styles.title}>{in4.title}</div>
-          <div className={styles.desc}>{in4.description}</div>
+          <div className={styles.desc}>{in4.desc}</div>
         </div>
 
         <div className={styles.priceDetail}>
@@ -51,7 +49,7 @@ const DetailItem = ({ in4 }) => {
             locatin score of 9.8!
           </div>
           <div className={styles.title}>
-            ${location.state.priceHotel * 9}
+            ${in4.cheapestPrice * 9}
             <span className={styles.currentPrice}> (9 nights)</span>
           </div>
           <div>

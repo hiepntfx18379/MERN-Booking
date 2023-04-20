@@ -24,13 +24,13 @@ app.use((err, req, res, next) => {
   const errStatus = err.status || 500;
   const errMessage = err.message || "Something went wrong!!";
   return res.status(errStatus).json({
-    success: false,
     status: errStatus,
     message: errMessage,
     stack: err.stack, // i can send whatever i want because no certain rule
   });
 });
 app.use(cookieParser());
+app.use(cors());
 
 // route init
 routers(app);

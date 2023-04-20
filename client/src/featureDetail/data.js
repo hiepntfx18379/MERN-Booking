@@ -3,7 +3,7 @@ export const dataDetail = {
   address: "Elton St 125 New york",
   distance: "Excellent location - 500m from center",
   price: "Book a stay over $114 at this property and get a free airport taxi",
-  photos: [
+  imgs: [
     "./images/hotel_detail_1.jpg",
     "./images/hotel_detail_2.jpg",
     "./images/hotel_detail_3.jpg",

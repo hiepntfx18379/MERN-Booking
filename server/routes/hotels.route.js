@@ -5,6 +5,8 @@ import {
   deleteHotel,
   findHotel,
   getAllHotel,
+  countByCity,
+  countByType,
 } from "../controllers/hotel.controller.js";
 import { verifyAdmin } from "../utils/verifyToken.js";
 
@@ -32,12 +34,14 @@ hotelsRoute.delete("/delete/:id", verifyAdmin, deleteHotel);
  * Public
  * GET find hotel
  */
-hotelsRoute.get("/:id", findHotel);
+hotelsRoute.get("/find/:id", findHotel);
 
 /**
  * Public
  * GET get all
  */
+hotelsRoute.get("/countByCity", countByCity);
+hotelsRoute.get("/countByType", countByType);
 hotelsRoute.get("/", getAllHotel);
 
 export default hotelsRoute;

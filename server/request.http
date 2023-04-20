@@ -3,15 +3,15 @@ POST http://localhost:5000/hotels/create
 Content-Type: application/json
 
 {
-  "name":"Hotel Mlem",
-  "typeHotel":"Hotel",
-  "city":"berlin",
+  "name":"Hotel marid",
+  "typeHotel":"villas",
+  "city":"marid",
   "address":"124a5d5ad5asda578",
   "distance":"500",
   "desc":"hotel desc",
-  "rating":5,
+  "rating":4,
   "featured":true,
-  "rooms":["likee"],
+  "rooms":[],
   "cheapestPrice":1000
 }
 
@@ -24,11 +24,22 @@ Content-Type: application/json
   "name":"Hotel Lover"
 }
 
-###
-DELETE http://localhost:5000/hotels/delete/643a50b4dc2e7ca880ba8f9a
+
 
 ###
-GET http://localhost:5000/hotels
+DELETE http://localhost:5000/hotels/delete/643cf620138d0f593412c110
+
+###
+GET http://localhost:5000/hotels?
+
+###
+GET http://localhost:5000/hotels/find/6311a9c64a642f01423490bf
+
+###
+GET http://localhost:5000/hotels/countByType
+
+###
+GET http://localhost:5000/hotels/countByCity?cities=Ha+Noi
 
 ###
 # user
@@ -94,3 +105,6 @@ GET  http://localhost:5000/hotels/
 
 ###
 DELETE  http://localhost:5000/rooms/delete/643c71aa877ee59324525cce/643b9eca154be6efe94e0709
+
+###
+#
