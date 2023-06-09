@@ -6,8 +6,8 @@ import useFetch from "../../../hookCustome/fetchData";
 
 const Cities = () => {
   const dataC = dataCity;
-  const { data, loading, err } = useFetch(
-    "hotels/countByCity?cities=Ha+Noi,Ho+Chi+Minh,Da+Nang"
+  const { data, loading } = useFetch(
+    "hotels/countByCity?cities=Ha+Noi,Ho+Chi+Minh,Da+Nang",
   );
   return (
     <>

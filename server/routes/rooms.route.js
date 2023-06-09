@@ -5,39 +5,22 @@ import {
   deleteRoom,
   findRoom,
   getAllRoom,
+  availableRoom,
 } from "../controllers/room.controller.js";
 import { verifyAdmin } from "../utils/verifyToken.js";
 
 const roomRoute = express.Router();
 
-/**
- * Private
- * POST create
- */
 roomRoute.post("/create/:hotelId", verifyAdmin, createRoom);
 
-/**
- * Private
- * PUT update
- */
 roomRoute.put("/update/:id", verifyAdmin, updateRoom);
 
-/**
- * Private
- * POST delete
- */
-roomRoute.delete("/delete/:id/:hotelId", verifyAdmin, deleteRoom);
+roomRoute.delete("/delete/:id", verifyAdmin, deleteRoom);
 
-/**
- * Public
- * GET find Room
- */
-roomRoute.get("/:id", findRoom);
+roomRoute.get("/find/:id", findRoom);
 
-/**
- * Public
- * GET get all
- */
+roomRoute.put("/availableRoom/:id", availableRoom);
+
 roomRoute.get("/", getAllRoom);
 
 export default roomRoute;

@@ -16,19 +16,18 @@ const Header = ({ type }) => {
           ))}
         </div>
 
+        <div className={styles.textHeader}>
+          <h1 className={styles.headerTitle}>
+            A lifetime of discount? It's Genius
+          </h1>
+          <p className={styles.headerDesc}>
+            Get rewarded for your travels - unlock instant savings 10% or more
+            with free discount
+          </p>
+        </div>
+
         {type !== "search" && (
           <>
-            <div className={styles.textHeader}>
-              <h1 className={styles.headerTitle}>
-                A lifetime of discount? It's Genius
-              </h1>
-              <p className={styles.headerDesc}>
-                Get rewarded for your travels - unlock instant savings 10% or
-                more with free discount
-              </p>
-              <button className={styles.headerBtn}>Sign in / Register </button>
-            </div>
-
             <Search />
           </>
         )}

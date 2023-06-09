@@ -7,8 +7,10 @@ const hotelsSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    typeHotel: {
+    type: {
       type: String,
+      enum: ["Hotel", "Apartments", "Resorts", "Villas", "Cabins"],
+      default: "Hotel",
       required: true,
     },
     city: {
@@ -29,13 +31,13 @@ const hotelsSchema = new mongoose.Schema(
     photos: {
       type: [String],
     },
-    desc: {
+    description: {
       type: String,
       required: true,
     },
-    rating: {
+    rate: {
       type: Number,
-      min: 0,
+      min: 1,
       max: 5,
     },
     featured: {
@@ -51,7 +53,7 @@ const hotelsSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 //Export the model

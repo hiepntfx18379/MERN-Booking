@@ -3,7 +3,7 @@ import argon2 from "argon2";
 import jwt from "jsonwebtoken";
 
 export const register = async (req, res, next) => {
-  const { username, password, fullName, phoneNumber, email } = req.body;
+  const { username, password, fullname, email, phonenumber } = req.body;
 
   if (!username || !password)
     return res.status(400).json({
@@ -26,17 +26,16 @@ export const register = async (req, res, next) => {
     const newUser = new userModel({
       username,
       password: hashedPassword,
-      fullName,
-      phoneNumber,
+      fullname,
       email,
+      phonenumber,
     });
-
     await newUser.save();
 
     //after register => take a token for user
     const accessToken = jwt.sign(
       { id: newUser._id },
-      process.env.ACCESS_TOKEN_SECRERT
+      process.env.ACCESS_TOKEN_SECRERT,
     );
 
     res.json({
@@ -72,10 +71,10 @@ export const login = async (req, res, next) => {
     if (!passwordValid)
       return res.status(400).json({
         success: false,
-        message: "Incorrect username or password2",
+        message: "Incorrect username or password",
       });
 
-    const { ...otherDetail } = user._doc;
+    const { isAdmin, ...otherDetail } = user._doc;
 
     // return token
     const accessToken = jwt.sign(
@@ -83,7 +82,7 @@ export const login = async (req, res, next) => {
         id: user._id,
         isAdmin: user.isAdmin,
       },
-      process.env.ACCESS_TOKEN_SECRERT
+      process.env.ACCESS_TOKEN_SECRERT,
     );
 
     res
@@ -92,7 +91,8 @@ export const login = async (req, res, next) => {
       })
       .status(200)
       .json({
-        ...otherDetail,
+        details: { ...otherDetail, isAdmin },
+        isAdmin,
       });
   } catch (err) {
     next(err);

@@ -1,8 +1,9 @@
 export const dataNavbar = [
   {
-    type: "Stays",
+    type: "Hotels",
     icon: "fa-bed",
     active: false,
+    link: "/all",
   },
   {
     type: "Flights",

@@ -12,7 +12,7 @@ const roomSchema = new mongoose.Schema(
       required: true,
     },
     maxPeople: {
-      type: Number,
+      type: String,
       required: true,
     },
     desc: {
@@ -26,7 +26,7 @@ const roomSchema = new mongoose.Schema(
       },
     ],
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 //Export the model

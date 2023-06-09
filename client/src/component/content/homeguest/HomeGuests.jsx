@@ -7,9 +7,9 @@ import useFetch from "../../../hookCustome/fetchData";
 const HomeGuests = () => {
   const dataH = dataHotel;
   const { data, loading, err } = useFetch(
-    "hotels?featured=true&city=ha+noi&city=ho+chi+minh"
+    "hotels?featured=true&city=ha+noi&city=ho+chi+minh",
   );
-  console.log(data);
+
   return (
     <>
       {loading
@@ -17,9 +17,7 @@ const HomeGuests = () => {
         : data.length > 0 && (
             <div className={styles.box}>
               {data.map((hotel, id) => {
-                return (
-                  <HomeGuestItem key={id} id={id} dataH={dataH} item={hotel} />
-                );
+                return <HomeGuestItem key={id} item={hotel} />;
               })}
             </div>
           )}

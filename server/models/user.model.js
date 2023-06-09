@@ -11,23 +11,27 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    fullName: {
+    country: {
       type: String,
-      required: true,
     },
-    phoneNumber: {
+    img: {
+      type: String,
+    },
+    fullname: {
+      type: String,
+    },
+    phonenumber: {
       type: String,
     },
     email: {
       type: String,
-      required: true,
     },
-    isAdmin: {
+    isadmin: {
       type: Boolean,
       default: false,
     },
   },
-  { timestamp: true }
+  { timestamp: true },
 );
 
 //Export the model

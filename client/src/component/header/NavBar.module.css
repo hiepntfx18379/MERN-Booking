@@ -6,6 +6,16 @@
   align-items: center;
 }
 
+.colortext {
+  color: white;
+}
+
+.atferLogin {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
 .container {
   width: 80%;
   margin: 0 auto;

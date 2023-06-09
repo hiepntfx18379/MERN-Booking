@@ -10,7 +10,7 @@
     "desc": "King size bed",
     "maxPeople": 3,
     "price": 200,
-    "roomNumbers": [101, 102],
+    "roomNumbers": [{ "number": 101 }, { "number": 102 }],
     "title": "2 Bed Room",
     "updatedAt": {
       "$date": "2022-09-02T06:43:27.616Z"
@@ -27,7 +27,7 @@
     "desc": "1 Bathroom",
     "maxPeople": 2,
     "price": 150,
-    "roomNumbers": [202],
+    "roomNumbers": [{ "number": 202 }],
     "title": "1 Bed Room",
     "updatedAt": {
       "$date": "2022-09-01T16:38:50.351Z"
@@ -44,7 +44,7 @@
     "desc": "Welcome drink, Coffee & tea, Express check-in, Free Premium Wifi, Free WiFi, Drinking water",
     "maxPeople": 2,
     "price": 600,
-    "roomNumbers": [101, 102],
+    "roomNumbers": [{ "number": 101 }, { "number": 102 }],
     "title": "Basement Double Room",
     "updatedAt": {
       "$date": "2022-09-02T07:37:06.178Z"
@@ -61,7 +61,7 @@
     "desc": "Free breakfast for 2",
     "maxPeople": 2,
     "price": 700,
-    "roomNumbers": [202, 203, 205],
+    "roomNumbers": [{ "number": 202 }, { "number": 203 }, { "number": 205 }],
     "title": "Superior basement room",
     "updatedAt": {
       "$date": "2022-09-02T07:41:08.213Z"
@@ -78,7 +78,7 @@
     "desc": "Welcome drink, Coffee & tea, Express check-in, Free Premium Wifi, Free WiFi, Drinking water",
     "maxPeople": 2,
     "price": 700,
-    "roomNumbers": [303, 403, 404],
+    "roomNumbers": [{ "number": 303 }, { "number": 403 }, { "number": 404 }],
     "title": "Deluxe Room",
     "updatedAt": {
       "$date": "2022-09-02T07:44:59.829Z"
@@ -95,7 +95,7 @@
     "desc": "Welcome drink, Coffee & tea, Express check-in, Free WiFi, Drinking water, Free fitness center access",
     "maxPeople": 2,
     "price": 300,
-    "roomNumbers": [101, 102],
+    "roomNumbers": [{ "number": 101 }, { "number": 102 }],
     "title": "Deluxe Window",
     "updatedAt": {
       "$date": "2022-09-02T08:26:24.542Z"
@@ -112,7 +112,7 @@
     "desc": "Extra low price! (non-refundable)",
     "maxPeople": 2,
     "price": 425,
-    "roomNumbers": [202, 203, 205],
+    "roomNumbers": [{ "number": 202 }, { "number": 203 }, { "number": 205 }],
     "title": "Premier City View Room",
     "updatedAt": {
       "$date": "2022-09-02T08:26:58.319Z"
@@ -129,7 +129,7 @@
     "desc": "Pay nothing until September 04, 2022",
     "maxPeople": 2,
     "price": 350,
-    "roomNumbers": [101, 102],
+    "roomNumbers": [{ "number": 101 }, { "number": 102 }],
     "title": "Budget Double Room",
     "updatedAt": {
       "$date": "2022-09-02T08:36:19.990Z"
@@ -146,7 +146,7 @@
     "desc": "Free cancellation before September 06, 2022",
     "maxPeople": 2,
     "price": 350,
-    "roomNumbers": [202, 203, 205],
+    "roomNumbers": [{ "number": 202 }, { "number": 203 }, { "number": 205 }],
     "title": "Budget Twin Room",
     "updatedAt": {
       "$date": "2022-09-02T08:36:56.388Z"

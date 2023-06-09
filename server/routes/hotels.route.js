@@ -4,44 +4,26 @@ import {
   updateHotel,
   deleteHotel,
   findHotel,
-  getAllHotel,
+  getAllHotelSearch,
   countByCity,
   countByType,
+  getRoomsOfHotel,
+  getAllHotelsAdmin,
+  getAllHotels,
 } from "../controllers/hotel.controller.js";
 import { verifyAdmin } from "../utils/verifyToken.js";
 
 const hotelsRoute = express.Router();
-
-/**
- * Private
- * POST create
- */
 hotelsRoute.post("/create", verifyAdmin, createHotel);
-
-/**
- * Private
- * PUT update
- */
+hotelsRoute.get("/getAll", getAllHotels);
 hotelsRoute.put("/update/:id", verifyAdmin, updateHotel);
-
-/**
- * Private
- * POST delete
- */
 hotelsRoute.delete("/delete/:id", verifyAdmin, deleteHotel);
-
-/**
- * Public
- * GET find hotel
- */
 hotelsRoute.get("/find/:id", findHotel);
 
-/**
- * Public
- * GET get all
- */
 hotelsRoute.get("/countByCity", countByCity);
 hotelsRoute.get("/countByType", countByType);
-hotelsRoute.get("/", getAllHotel);
+hotelsRoute.get("/allRoom/:id", getRoomsOfHotel);
+hotelsRoute.get("/search", getAllHotelSearch);
+hotelsRoute.get("/", getAllHotelsAdmin);
 
 export default hotelsRoute;

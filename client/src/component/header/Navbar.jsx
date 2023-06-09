@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./NavBar.module.css";
+import { AuthContext } from "../../context/authContext";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const { user, dispatch } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    dispatch({ type: "logout" });
+  };
+
   return (
     <div className={styles.navbar}>
       <div className={styles.container}>
@@ -13,10 +21,24 @@ const Navbar = () => {
           >
             Booking Website
           </div>
-          <div className={styles.navButton}>
-            <button className={styles.button}>Register</button>
-            <button className={styles.button}>Log in</button>
-          </div>
+          {user ? (
+            <div className={styles.atferLogin}>
+              <span className={styles.colortext}>{user.username}</span>
+              <button>
+                <Link to={`/transaction/${user._id}`}>Transaction</Link>
+              </button>
+              <button onClick={handleLogout}>Logout</button>
+            </div>
+          ) : (
+            <div className={styles.navButton}>
+              <button className={styles.button}>
+                <Link to={"/register"}>Register</Link>
+              </button>
+              <button className={styles.button}>
+                <Link to={"/login"}>Log in</Link>
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>

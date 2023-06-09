@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import styles from "./BoxSearch.module.css";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
@@ -7,25 +7,23 @@ import { DateRange } from "react-date-range";
 import DisplaySearch from "../display/DisplaySearch";
 import styles2 from "../search/Search.module.css";
 import useFetch from "../../hookCustome/fetchData";
+import { SearchContext } from "../../context/searchContext";
 
 const BoxSearch = () => {
   // dư liệu gửi từ ô tìm kiếm trang home
   const location = useLocation();
-  // console.log(location); in ra dữ liệu
 
   // nhận và đặt trạng thái giá trị lấy đc
-  const [destination, setDestination] = useState(location.state.destination);
+  const [destination, setDestination] = useState(location.state?.destination);
   const [date, setDate] = useState(location.state.date);
-  const [option, setOptions] = useState(location.state.options);
+  const [option, setOptions] = useState(location.state?.options);
   const [openDate, setOpenDate] = useState(false);
   const [min, setMin] = useState(0);
   const [max, setMax] = useState(999);
+  const [rooms, setRooms] = useState(option?.room);
   const { data, loading, error, reFetch } = useFetch(
-    `hotels?city=${destination}&min=${min}&max=${max}`
+    `hotels/search?city=${destination}&min=${min}&max=${max}&rooms=${rooms}`,
   );
-  const handleClick = () => {
-    reFetch();
-  };
 
   return (
     <div className={styles2.boxContainer}>
@@ -38,7 +36,9 @@ const BoxSearch = () => {
             <input
               className={styles.inputCheck}
               value={destination}
-              onChange={(e) => setDestination(e.target.value)}
+              onChange={(e) => {
+                setDestination(e.target.value);
+              }}
               type="text"
             />
           </div>
@@ -46,13 +46,14 @@ const BoxSearch = () => {
           {/* chọn ngày */}
           <div className={styles.item}>
             <label>Check-in Date</label>
-            <span
-              onClick={() => setOpenDate(!openDate)}
-              className={styles.checkDate}
-            >{`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(
-              date[0].endDate,
-              "MM/dd/yyyy"
-            )}`}</span>
+            <input
+              style={{ padding: "5px", fontSize: "18px", fontweight: "600" }}
+              readOnly
+              value={`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(
+                date[0].endDate,
+                "MM/dd/yyyy",
+              )}`}
+            />
 
             {/* Đóng mở lịch */}
             {openDate && (
@@ -112,17 +113,14 @@ const BoxSearch = () => {
             <div className={styles.opIt}>
               <span className={styles.text}> Room</span>
               <input
-                type="number"
                 min={1}
-                value={option.room}
+                type="number"
                 className={styles.textValue}
+                value={option.room}
+                onChange={(e) => setRooms(e.target.value)}
               />
             </div>
           </div>
-
-          <button className={styles.btnSearch} onClick={handleClick}>
-            Search
-          </button>
         </div>
         {loading ? "loading" : <DisplaySearch data={data} />}
       </div>

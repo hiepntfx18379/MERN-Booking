@@ -23,16 +23,30 @@ export const createRoom = async (req, res, next) => {
 
 export const updateRoom = async (req, res, next) => {
   try {
-    console.log("update");
     const updatedRoom = await roomModel.findByIdAndUpdate(
       req.params.id,
       {
         $set: req.body,
       },
-      { new: true }
+      { new: true },
     );
     res.status(200).json(updatedRoom);
-    console.log("update ok");
+  } catch (err) {
+    next(err);
+  }
+};
+
+export const availableRoom = async (req, res, next) => {
+  try {
+    await roomModel.updateOne(
+      { "roomNumber._id": req.params.id },
+      {
+        $push: {
+          "roomNumbers.$.unavailableDates ": req.body.dates,
+        },
+      },
+    );
+    res.status(200).json("Room has updated  ");
   } catch (err) {
     next(err);
   }
@@ -57,10 +71,8 @@ export const deleteRoom = async (req, res, next) => {
 
 export const findRoom = async (req, res, next) => {
   try {
-    console.log("find");
     const room = await roomModel.findById(req.params.id);
     res.status(200).json(room);
-    console.log("find ok");
   } catch (err) {
     next(err);
   }
@@ -68,10 +80,8 @@ export const findRoom = async (req, res, next) => {
 
 export const getAllRoom = async (req, res, next) => {
   try {
-    console.log("get all");
     const rooms = await roomModel.find();
     res.status(200).json(rooms);
-    console.log("get all ok");
   } catch (err) {
     next(err);
   }

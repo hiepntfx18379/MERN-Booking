@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Item.module.css";
 import clsx from "clsx";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 // phần tử render icon có props truyền từ Header.jsx
 const Item = ({ item }) => {
@@ -20,10 +21,15 @@ const Item = ({ item }) => {
         [styles.active]: acCl,
       })}
     >
-      <span>
-        <i className={`fa ${item.icon}`} aria-hidden="true"></i>
-      </span>
-      <span className="type">{item.type}</span>
+      <Link
+        to={item.link ? `${item.link}` : ""}
+        style={{ color: "white", textDecoration: "none" }}
+      >
+        <span>
+          <i className={`fa ${item.icon}`} aria-hidden="true"></i>
+        </span>
+        <span className="type">{item.type}</span>
+      </Link>
     </div>
   );
 };

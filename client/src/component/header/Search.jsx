@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import { DateRange } from "react-date-range";
 import styles from "./Search.module.css";
@@ -6,6 +6,7 @@ import "react-date-range/dist/styles.css"; // main css
 import "react-date-range/dist/theme/default.css"; // them css file
 import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
+import { SearchContext } from "../../context/searchContext";
 
 const Search = () => {
   // ẩn hiện ô thời gian
@@ -37,9 +38,16 @@ const Search = () => {
     }));
   };
 
+  // get value for context
+  const { dispatch } = useContext(SearchContext);
+
   // handle search => pass info to page search
   const navigate = useNavigate();
   const handleSearch = () => {
+    dispatch({
+      type: "getInfoSearch",
+      payload: { destination, date, options },
+    });
     navigate("/search", {
       state: { destination, date, options },
     });

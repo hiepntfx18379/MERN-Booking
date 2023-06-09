@@ -17,7 +17,7 @@ app.use(
   bodyParser.urlencoded({
     extended: true,
     limit: "30mb",
-  })
+  }),
 );
 app.use(express.json());
 app.use((err, req, res, next) => {

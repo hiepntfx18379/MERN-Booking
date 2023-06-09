@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import DisplaySearchItem from "./DisplaySearchItem";
 import styles from "./DisplaySearch.module.css";
 
