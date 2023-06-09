@@ -28,9 +28,10 @@ Luồng chạy:
    + hiện thị dữ liệu
    + Xem toàn bộ khách sạn khi click nút khách sạn
    + người dùng tìm kiếm theo địa điểm, ngày bắt đầu và kết thúc, số phòng muốn đặt -> click search 
-   -> tại trang tìm kiếm: có thể tìm kiếm lại điểm điểm và giá phòng -> danh sách ks
-   -> click ks để xem chi tiết -> click reserve để chọn phòng lại ngày, điền thông tin người dùng, chọn phòng, thanh toán
-   -> đc chuyển về trang tổng hợp: toàn bộ các ks người dùng đã từng đặt và hiển thị trạng thái ks
+   + Tại trang tìm kiếm: có thể tìm kiếm lại điểm điểm và giá phòng 
+   + -> danh sách ks
+   + -> click ks để xem chi tiết -> click reserve để chọn phòng lại ngày, điền thông tin người dùng, chọn phòng, thanh toán
+   + -> đc chuyển về trang tổng hợp: toàn bộ các ks người dùng đã từng đặt và hiển thị trạng thái ks
   
 - admin:
    + cần đăng nhập tài khoản admin
