@@ -1,0 +1,6 @@
+acount admin: 
+name: fize
+pass: 123456
+
+name: monooxit
+pass: 123456
