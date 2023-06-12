@@ -1,3 +1,7 @@
+import moment from "moment";
+import { GridColumnGroupingModel } from "@mui/x-data-grid";
+import { Button } from "@mui/material";
+
 export const userColumns = [
   {
     field: "user",
@@ -101,18 +105,20 @@ export const transactionColumn = [
     width: 150,
   },
   {
-    field: "dateStart",
-    headerName: "Date start",
-    width: 150,
-  },
-  {
-    field: "dateEnd",
-    headerName: "Date end",
-    width: 150,
+    field: "Date",
+    valueGetter: (params) => {
+      return `${moment(params.row.dateStart).format("DD/MM/YYYY")} - ${moment(
+        params.row.dateEnd,
+      ).format("DD/MM/YYYY")}`;
+    },
+    width: 200,
   },
   {
     field: "price",
     headerName: "Price",
+    valueGetter: (params) => {
+      return `$${params.row.price}`;
+    },
     width: 100,
   },
   {
@@ -123,6 +129,18 @@ export const transactionColumn = [
   {
     field: "status",
     headerName: "Status",
+    renderCell: (params) => BgStatus(params.row.status),
     width: 100,
   },
 ];
+
+const BgStatus = (status) => {
+  if (status === "Booked")
+    return <Button sx={{ bgcolor: "pink", color: "black" }}>Booked</Button>;
+  if (status === "Checkout")
+    return (
+      <Button sx={{ bgcolor: "#DCC8DE", color: "black" }}>Checkout</Button>
+    );
+  if (status === "Checkin")
+    return <Button sx={{ bgcolor: "green", color: "black" }}>Checkin</Button>;
+};
