@@ -4,7 +4,7 @@ import List from "./pages/list/List";
 import Single from "./pages/single/Single";
 import New from "./pages/new/New";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { hotelInputs, userInputs } from "./formSource";
+import { hotelInputs, roomInputs, userInputs } from "./formSource";
 import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
@@ -12,6 +12,8 @@ import { AuthContext } from "./context/authContext";
 import { hotelColumns, roomColumns, userColumns } from "./datatablesource";
 import NewHotel from "./add/newHotel/NewHotel";
 import NewRoom from "./add/newRoom/NewRoom";
+import UpdateHotel from "./update/updateHotel/UpdateHotel";
+import UpdateRoom from "./update/updateRoom/UpdateRoom";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -48,14 +50,6 @@ function App() {
                 }
               />
               <Route
-                path=":userId"
-                element={
-                  <ProtectedRoute>
-                    <Single />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
                 path="new"
                 element={
                   <ProtectedRoute>
@@ -74,18 +68,19 @@ function App() {
                 }
               />
               <Route
-                path=":productId"
-                element={
-                  <ProtectedRoute>
-                    <Single />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
                 path="new"
                 element={
                   <ProtectedRoute>
                     <NewHotel inputs={hotelInputs} title="Add New Hotel" />
+                  </ProtectedRoute>
+                }
+              />
+
+              <Route
+                path="update/:id"
+                element={
+                  <ProtectedRoute>
+                    <UpdateHotel inputs={hotelInputs} title="Edit Hotel" />
                   </ProtectedRoute>
                 }
               />
@@ -101,18 +96,18 @@ function App() {
                 }
               />
               <Route
-                path=":productId"
+                path="new"
                 element={
                   <ProtectedRoute>
-                    <Single />
+                    <NewRoom inputs={roomInputs} title="Add New Room" />
                   </ProtectedRoute>
                 }
               />
               <Route
-                path="new"
+                path="update/:id"
                 element={
                   <ProtectedRoute>
-                    <NewRoom inputs={hotelInputs} title="Add New Hotel" />
+                    <UpdateRoom inputs={roomInputs} title="Edit Room" />
                   </ProtectedRoute>
                 }
               />

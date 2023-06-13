@@ -6,9 +6,10 @@ import { useState } from "react";
 import { roomInputs } from "../../formSource";
 import useFetch from "../../hookCustome/fetchData";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-const NewRoom = () => {
+const UpdateRoom = ({ title }) => {
+  const param = useParams();
   const [info, setInfo] = useState({});
   const [hotelId, setHotelId] = useState(undefined);
   const [rooms, setRooms] = useState([]);
@@ -32,7 +33,7 @@ const NewRoom = () => {
     };
 
     try {
-      await axios.post(`/rooms/create/${hotelId}`, newRoom);
+      await axios.put(`/rooms/update/${param.id}`, newRoom);
       navigate("/rooms");
     } catch (err) {
       console.log(err);
@@ -45,7 +46,7 @@ const NewRoom = () => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>Add New Room</h1>
+          <h1>{title}</h1>
         </div>
         <div className="bottom">
           <div className="right">
@@ -97,4 +98,4 @@ const NewRoom = () => {
   );
 };
 
-export default NewRoom;
+export default UpdateRoom;

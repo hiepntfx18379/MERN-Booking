@@ -7,6 +7,7 @@ import {
   createTransaction,
   getTransaction,
   getAllTransactions,
+  findTransaction,
 } from "../controllers/user.controller.js";
 import { verifyAdmin, verifyUser } from "../utils/verifyToken.js";
 
@@ -18,6 +19,7 @@ userRoute.get("/find/:id", verifyUser, findUser);
 userRoute.post("/transaction", verifyUser, createTransaction);
 userRoute.get("/transaction/:id", getTransaction);
 userRoute.get("/all/transactions", verifyAdmin, getAllTransactions);
+userRoute.get("/find/transaction/:id", verifyAdmin, findTransaction);
 userRoute.get("/", verifyAdmin, getAllUser);
 
 export default userRoute;

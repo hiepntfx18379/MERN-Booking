@@ -1,19 +1,12 @@
 import "./sidebar.scss";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
-import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import CreditCardIcon from "@mui/icons-material/CreditCard";
 import StoreIcon from "@mui/icons-material/Store";
-import InsertChartIcon from "@mui/icons-material/InsertChart";
-import SettingsApplicationsIcon from "@mui/icons-material/SettingsApplications";
-import ExitToAppIcon from "@mui/icons-material/ExitToApp";
-import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
-import SettingsSystemDaydreamOutlinedIcon from "@mui/icons-material/SettingsSystemDaydreamOutlined";
-import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
-import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import { Link } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 
 const Sidebar = () => {
   const { dispatch } = useContext(DarkModeContext);
@@ -50,6 +43,29 @@ const Sidebar = () => {
             <li>
               <CreditCardIcon className="icon" />
               <span>Rooms</span>
+            </li>
+          </Link>
+
+          <p className="title">NEW</p>
+          <Link to="/rooms/new" style={{ textDecoration: "none" }}>
+            <li>
+              <CreditCardIcon className="icon" />
+              <span> New Room</span>
+            </li>
+          </Link>
+
+          <Link to="/hotels/new" style={{ textDecoration: "none" }}>
+            <li>
+              <StoreIcon className="icon" />
+              <span>New Hotel</span>
+            </li>
+          </Link>
+
+          <p className="title">USER</p>
+          <Link to="/login" style={{ textDecoration: "none" }}>
+            <li>
+              <ExitToAppIcon className="icon" />
+              <span>Logout</span>
             </li>
           </Link>
         </ul>

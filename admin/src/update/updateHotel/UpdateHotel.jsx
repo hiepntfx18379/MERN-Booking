@@ -4,15 +4,16 @@ import Navbar from "../../components/navbar/Navbar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { hotelInputs } from "../../formSource";
 import useFetch from "../../hookCustome/fetchData";
 
-const NewHotel = ({ inputs, title }) => {
+const UpdateHotel = ({ title }) => {
+  const param = useParams();
   const [file, setFile] = useState("");
   const [info, setInfo] = useState({});
   const navigate = useNavigate();
-  const { data, err } = useFetch("/rooms");
+  const { data } = useFetch("/rooms");
   const [rooms, setRooms] = useState([]);
 
   const handleChange = (e) => {
@@ -46,12 +47,12 @@ const NewHotel = ({ inputs, title }) => {
         }),
       );
 
-      const newHotel = {
+      const updateHotel = {
         ...info,
         rooms,
         photos: list,
       };
-      await axios.post("/hotels/create", newHotel);
+      await axios.put(`/hotels/update/${param.id}`, updateHotel);
 
       navigate("/hotels");
     } catch (err) {
@@ -135,4 +136,4 @@ const NewHotel = ({ inputs, title }) => {
   );
 };
 
-export default NewHotel;
+export default UpdateHotel;

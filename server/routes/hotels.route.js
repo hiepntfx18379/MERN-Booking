@@ -19,7 +19,6 @@ hotelsRoute.get("/getAll", getAllHotels);
 hotelsRoute.put("/update/:id", verifyAdmin, updateHotel);
 hotelsRoute.delete("/delete/:id", verifyAdmin, deleteHotel);
 hotelsRoute.get("/find/:id", findHotel);
-
 hotelsRoute.get("/countByCity", countByCity);
 hotelsRoute.get("/countByType", countByType);
 hotelsRoute.get("/allRoom/:id", getRoomsOfHotel);

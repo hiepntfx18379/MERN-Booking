@@ -141,3 +141,7 @@ GET http://localhost:5000/hotels/getAll
 ###
 GET http://localhost:5000/user/all/transactions
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2JhMDE5ZWY0OTZjYzdlOWVmMjQwOCIsImlhdCI6MTY4NjI4OTU0N30.RkRGk9IF-_hIk5uI_mobuW759mtjsLbiWXXPXto6lDY
+
+###
+GET http://localhost:5000/user/find/transaction/647c062ebb2ea3c0560efba0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2JhMDE5ZWY0OTZjYzdlOWVmMjQwOCIsImlhdCI6MTY4NjU2MDU1N30.77ob-oR4zTcLilReFR0s5-CR0zIGw3j-nblcrJr5Iqw

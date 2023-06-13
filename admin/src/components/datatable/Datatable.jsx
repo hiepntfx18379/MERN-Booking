@@ -18,10 +18,17 @@ const Datatable = ({ columns }) => {
   }, [data]);
 
   const handleDelete = async (id) => {
-    try {
-      await axios.delete(`${path}/delete/${id}`);
-      setListData(reFetch());
-    } catch (err) {}
+    if (window.confirm("Do u want delete?")) {
+      await axios.get(`user/find/transaction/${id}`).then(async ({ data }) => {
+        if (data.hotelTransaction.length < 1) {
+          await axios.delete(`${path}/delete/${id}`);
+          setListData(reFetch());
+        } else {
+          window.confirm("You can't delete");
+          return false;
+        }
+      });
+    }
   };
 
   const actionColumn = [
@@ -32,8 +39,11 @@ const Datatable = ({ columns }) => {
       renderCell: (params) => {
         return (
           <Button className="cellAction">
-            <Link to="/user/test" style={{ textDecoration: "none" }}>
-              <div className="viewButton">View</div>
+            <Link
+              to={`/${path}/update/${params.row._id}`}
+              style={{ textDecoration: "none" }}
+            >
+              <div className="viewButton">Update</div>
             </Link>
 
             <Button

@@ -85,12 +85,6 @@ export const hotelInputs = [
     type: "text",
     placeholder: "hotel address",
   },
-  {
-    id: "rate",
-    label: "Rating",
-    type: "number",
-    placeholder: "6-10",
-  },
 ];
 
 export const roomInputs = [

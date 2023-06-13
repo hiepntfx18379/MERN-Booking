@@ -107,8 +107,25 @@ export const getTransaction = async (req, res, next) => {
 
 export const getAllTransactions = async (req, res, next) => {
   try {
-    const getTrans = await transModel.find();
+    const getTrans = await transModel.find().sort({ status: 1 });
     res.status(200).json(getTrans);
+  } catch (err) {
+    next(err);
+  }
+};
+
+export const findTransaction = async (req, res, next) => {
+  try {
+    const idHotel = req.params;
+    const hotelTransaction = await transModel.find({
+      hotel: idHotel.id,
+    });
+
+    res.json({
+      success: true,
+      message: "You can't delete ",
+      hotelTransaction,
+    });
   } catch (err) {
     next(err);
   }
