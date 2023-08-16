@@ -18,6 +18,8 @@
    
 # Cài đặt:
 - Yêu cầu Node >= 14.17, react >= 16.8.0
+   + Cài đặt node: https://nodejs.org/fr
+   + Kiểm tra phiên bản node và npm trong terminal hoặc cmd : node -v và npm -v
 - Tải dự án: git clone https://github.com/hiepntfx18379/MERN-Booking
 - Chạy trong terminal: npm install
 - Chạy dự án:
