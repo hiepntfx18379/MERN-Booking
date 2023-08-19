@@ -6,7 +6,6 @@ import { useParams } from "react-router-dom";
 const TableTransaction = () => {
   const [getTrans, setGetTrans] = useState([]);
   const { id } = useParams();
-  console.log(id);
   useEffect(() => {
     const getAllTransactionOfUser = async () => {
       const res = await fetch(`http://localhost:5000/user/transaction/${id}`);
@@ -16,7 +15,6 @@ const TableTransaction = () => {
 
     getAllTransactionOfUser();
   }, [id]);
-
   console.log(getTrans);
 
   return (

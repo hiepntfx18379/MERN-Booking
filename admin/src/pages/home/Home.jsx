@@ -11,15 +11,16 @@ import axios from "axios";
 const Home = () => {
   const [countUser, setCountUser] = useState(0);
   const [countRevenue, setCountRevenue] = useState(0);
+  const [dataTrans, setData] = useState();
 
   useEffect(() => {
     async function getAll() {
       try {
         const response = await axios.get("/user/all/transactions");
+        setData(response.data);
         setCountUser(response.data.length);
         let money = response.data.reduce((total, item) => {
-          if (item.status === "Checkout") return total + Number(item.price);
-          return total;
+          return total + Number(item.price);
         }, 0);
         setCountRevenue(money);
       } catch (err) {
@@ -44,7 +45,7 @@ const Home = () => {
         <div className="charts"></div>
         <div className="listContainer">
           <div className="listTitle">Latest Transactions</div>
-          <ListTransaction columns={transactionColumn} />
+          <ListTransaction columns={transactionColumn} data={dataTrans} />
         </div>
       </div>
     </div>

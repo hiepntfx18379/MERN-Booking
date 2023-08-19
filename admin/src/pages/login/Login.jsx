@@ -19,21 +19,17 @@ const Login = () => {
 
   const handleClick = async (e) => {
     e.preventDefault();
-    try {
-      
-      const res = await axios.post("auth/login", userLogin);
-      
-      if (res.data.isAdmin) {
-        dispatch({ type: "login_ss", payload: res.data.details });
-        navigate("/");
-      } else {
-        dispatch({
-          type: "logn_fail",
-          payload: { message: "You are not allowed" },
-        });
-      }
-    } catch (err) {
-      dispatch({ type: "logn_fail", payload: err.response.data });
+
+    const res = await axios.post("auth/login", userLogin);
+    console.log(res);
+    if (res.data.isadmin) {
+      dispatch({ type: "login_ss", payload: res.data.details });
+      navigate("/");
+    } else {
+      dispatch({
+        type: "logn_fail",
+        payload: { message: "You are not allowed" },
+      });
     }
   };
 

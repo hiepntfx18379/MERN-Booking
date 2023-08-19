@@ -12,22 +12,44 @@ const Datatable = ({ columns }) => {
   let path = location.pathname.split("/")[1];
   const { data, reFetch } = useFetch(`${path}`);
   const [listData, setListData] = useState();
+  const [listHotel, setListHotel] = useState([]);
+  const [listRoom, setListRoom] = useState([]);
 
   useEffect(() => {
     setListData(data);
+
+    async function getlist() {
+      try {
+        await axios.get(`/user/all/transactions`).then(async ({ data }) => {
+          let listHotelBooked = [],
+            listRoomBooked = [];
+          for (let j of data) {
+            listHotelBooked.push(j.hotel);
+            for (let i of j.roomInfo) {
+              listRoomBooked.push(i);
+            }
+          }
+
+          setListHotel([...new Set(listHotelBooked)]);
+          setListRoom([...new Set(listRoomBooked)]);
+        });
+      } catch (err) {
+        alert(err.message);
+      }
+    }
+
+    getlist();
   }, [data]);
 
   const handleDelete = async (id) => {
     if (window.confirm("Do u want delete?")) {
-      await axios.get(`user/find/transaction/${id}`).then(async ({ data }) => {
-        if (data.hotelTransaction.length < 1) {
-          await axios.delete(`${path}/delete/${id}`);
-          setListData(reFetch());
-        } else {
-          window.confirm("You can't delete");
-          return false;
-        }
-      });
+      if (listHotel.includes(id) || listRoom.includes(id)) {
+        window.confirm("Hotel/room is booked. You can delete");
+        return false;
+      } else {
+        await axios.delete(`${path}/delete/${id}`);
+        setListData(reFetch());
+      }
     }
   };
 

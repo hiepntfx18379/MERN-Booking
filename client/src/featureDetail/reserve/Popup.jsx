@@ -13,7 +13,6 @@ import { format } from "date-fns";
 import { DateRange } from "react-date-range";
 import { AuthContext } from "../../context/authContext";
 import { useNavigate } from "react-router-dom";
-import moment from "moment";
 
 const Popup = ({ id, close, user, days, info }) => {
   const { data } = useFetch(`allRoom/${id}`);
@@ -62,15 +61,13 @@ const Popup = ({ id, close, user, days, info }) => {
     close(false);
   };
 
-  const handleSelect = (e, price, numberRoom) => {
+  const handleSelect = (e, idRoom, price, numberRoom) => {
     const checked = e.target.checked;
-    const value = e.target.value;
-
-    const roomChoice = { value, price, numberRoom };
+    const roomChoice = { idRoom, price, numberRoom };
     setSelectedRooms(
       checked
         ? [...selectedRooms, roomChoice]
-        : selectedRooms.filter((item) => item.value !== value),
+        : selectedRooms.filter((item) => item.idRoom !== idRoom),
     );
   };
 
@@ -113,12 +110,14 @@ const Popup = ({ id, close, user, days, info }) => {
     username: user.username,
     hotel: id,
     hotelname: info.name,
+    roomInfo: selectedRooms.map((m) => m.idRoom),
     room: selectedRooms.map((m) => m.numberRoom),
     dateStart: addDaysToDate(date[0].startDate, 1),
     dateEnd: addDaysToDate(date[0].endDate, 1),
     price: bill,
     payment: payMethod,
   };
+  console.log(newTransaction);
 
   const handleClick = async () => {
     try {
@@ -129,12 +128,12 @@ const Popup = ({ id, close, user, days, info }) => {
           });
           return res.data;
         }),
-        axios.post(`/user/transaction`, newTransaction),
+        await axios.post(`/user/transaction`, newTransaction),
       );
 
       navigate(`/transaction/${user._id}`, { state: user._id });
     } catch (err) {
-      console.log(err);
+      alert("Miss number of rooms or payment method");
     }
   };
 
@@ -252,7 +251,12 @@ const Popup = ({ id, close, user, days, info }) => {
                           type="checkbox"
                           value={roomNumber._id}
                           onChange={(e) =>
-                            handleSelect(e, item.price, roomNumber.number)
+                            handleSelect(
+                              e,
+                              item._id,
+                              item.price,
+                              roomNumber.number,
+                            )
                           }
                           disabled={!isAvailable(roomNumber)}
                         />

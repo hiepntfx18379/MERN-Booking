@@ -1,13 +1,9 @@
+import useFetch from "../../hookCustome/fetchData";
 import "./datatable.scss";
 import { DataGrid } from "@mui/x-data-grid";
-import { useEffect, useState } from "react";
-import useFetch from "../../hookCustome/fetchData";
-import { groupDate } from "../../datatablesource";
 
 const DatatableTransaction = ({ columns }) => {
-  const { data, reFetch } = useFetch(`/user/all/transactions`);
-  const [listData, setListData] = useState();
-
+  const { data } = useFetch(`/user/all/transactions`);
   return (
     <div className="datatable">
       <DataGrid
