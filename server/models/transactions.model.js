@@ -20,6 +20,10 @@ var transactionSchema = new mongoose.Schema({
     type: String,
     require: true,
   },
+  roomInfo: {
+    type: [Object],
+    require: true,
+  },
   room: {
     type: [String],
     required: true,

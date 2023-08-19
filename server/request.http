@@ -133,14 +133,14 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NzZhZjNjN
 ###
 GET http://localhost:5000/user/transaction/6476af3c674c5a8d9855c49a
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NzVkNjBiMDA2YjY2NTVkNjMzYzNiOSIsImlhdCI6MTY4NjI4MDEzOH0.rg5pRuMvj4I2-La_NrYhY_au9lU1uK1R1ZWA9JZ7blk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2JhMDE5ZWY0OTZjYzdlOWVmMjQwOCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY5MjQ0MDE1NX0.21sljbYyM__EBzvPSBs_J6bfLJk3UAKvxmm208-c5h0
 
 ###
 GET http://localhost:5000/hotels/getAll
 
 ###
 GET http://localhost:5000/user/all/transactions
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2JhMDE5ZWY0OTZjYzdlOWVmMjQwOCIsImlhdCI6MTY4NjI4OTU0N30.RkRGk9IF-_hIk5uI_mobuW759mtjsLbiWXXPXto6lDY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2JhMDE5ZWY0OTZjYzdlOWVmMjQwOCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY5MjQ0MDE1NX0.21sljbYyM__EBzvPSBs_J6bfLJk3UAKvxmm208-c5h0
 
 ###
 GET http://localhost:5000/user/find/transaction/647c062ebb2ea3c0560efba0

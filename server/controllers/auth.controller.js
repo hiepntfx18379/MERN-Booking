@@ -74,13 +74,13 @@ export const login = async (req, res, next) => {
         message: "Incorrect username or password",
       });
 
-    const { isAdmin, ...otherDetail } = user._doc;
+    const { isadmin, ...otherDetail } = user._doc;
 
     // return token
     const accessToken = jwt.sign(
       {
         id: user._id,
-        isAdmin: user.isAdmin,
+        isAdmin: user.isadmin,
       },
       process.env.ACCESS_TOKEN_SECRERT,
     );
@@ -91,8 +91,8 @@ export const login = async (req, res, next) => {
       })
       .status(200)
       .json({
-        details: { ...otherDetail, isAdmin },
-        isAdmin,
+        details: { ...otherDetail, isadmin },
+        isadmin,
       });
   } catch (err) {
     next(err);

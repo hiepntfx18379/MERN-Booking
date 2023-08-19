@@ -50,6 +50,7 @@ export const createTransaction = async (req, res, next) => {
       username,
       hotel,
       hotelname,
+      roomInfo,
       room,
       dateStart,
       dateEnd,
@@ -57,7 +58,7 @@ export const createTransaction = async (req, res, next) => {
       payment,
     } = req.body;
     if (room.length === 0 || !payment)
-      return res.status(400).json({
+      res.status(400).json({
         success: false,
         message: "Missing number of rooms or payment methods",
       });
@@ -67,6 +68,7 @@ export const createTransaction = async (req, res, next) => {
       username,
       hotel,
       hotelname,
+      roomInfo,
       room,
       dateStart,
       dateEnd,
