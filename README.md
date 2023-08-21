@@ -1,4 +1,14 @@
 # Web app  MERN Booking
+# Giới thiệu
+Đây là 1 web app xem thông tin và tìm kiếm đặt phòng khách sạn. Là bản nâng cấp của dự án react booking UI. Tự xây dựng máy chủ, tự xây dựng cở sở dữ liệu và gọi api đã được điều chỉnh.
+
+# Mục tiêu
+- Hiểu sâu cách vận dụng cách thiết kế phần mềm theo mô hình cụ thể MVC
+- Biết quy trình triển khai dự án hoàn chỉnh cả phía máy chủ và máy khách
+- Biết cách xử lý logic phía máy chủ và máy khách, hiểu cách chúng giao tiếp với nhau
+- Xử lý lỗi
+- Quản lý dữ liệu thu thập được
+
 # Miêu tả:
 - Xử lý dữ liệu có được nhờ restful api trong nodejs
 - Hiển thị dữ liệu lưu trong cơ sở dữ liệu trên bố cục trình duyệt
